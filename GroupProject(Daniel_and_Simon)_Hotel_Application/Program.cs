@@ -1,15 +1,23 @@
-using Amazon.DynamoDBv2.DataModel;
-using Amazon.DynamoDBv2;
 using Microsoft.AspNetCore.Builder;
 using Amazon.Extensions.NETCore.Setup;
 using Microsoft.Extensions.DependencyInjection;
+using GroupProject_Daniel_and_Simon__Hotel_Application.Models;
+using Microsoft.EntityFrameworkCore;
+using GroupProject_Daniel_and_Simon__Hotel_Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("User"));
+builder.Services.AddDbContext<BookingContext>(opt => opt.UseInMemoryDatabase("Booking"));
+
+//builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("HotelApiConnectionString_User")));
+//builder.Services.AddDbContext<BookingContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("HotelApiConnectionString_Booking")));
+
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+
 builder.Services.AddControllers();
-builder.Services.AddControllersWithViews();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -19,9 +27,6 @@ AWSOptions awsOptions = builder.Configuration.GetAWSOptions();
 
 // Configure AWS service clients to use these credentials
 builder.Services.AddDefaultAWSOptions(awsOptions);
-
-builder.Services.AddAWSService<IAmazonDynamoDB>();
-builder.Services.AddScoped<IDynamoDBContext, DynamoDBContext>();
 
 var app = builder.Build();
 
@@ -37,11 +42,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-});
+
 
 app.Run();
