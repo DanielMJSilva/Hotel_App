@@ -67,3 +67,6 @@ C:\Users\DMJS\source\repos\GroupProject(Daniel_and_Simon)_Hotel_Application\Grou
 C:\Users\DMJS\source\repos\GroupProject(Daniel_and_Simon)_Hotel_Application\GroupProject(Daniel_and_Simon)_Hotel_Application\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\DMJS\source\repos\GroupProject(Daniel_and_Simon)_Hotel_Application\GroupProject(Daniel_and_Simon)_Hotel_Application\bin\Debug\net6.0\Humanizer.dll
 C:\Users\DMJS\source\repos\GroupProject(Daniel_and_Simon)_Hotel_Application\GroupProject(Daniel_and_Simon)_Hotel_Application\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\DMJS\source\repos\GroupProject(Daniel_and_Simon)_Hotel_Application\GroupProject(Daniel_and_Simon)_Hotel_Application\bin\Debug\net6.0\aws-beanstalk-tools-defaults.json
+C:\Users\DMJS\source\repos\GroupProject(Daniel_and_Simon)_Hotel_Application\GroupProject(Daniel_and_Simon)_Hotel_Application\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\DMJS\source\repos\GroupProject(Daniel_and_Simon)_Hotel_Application\GroupProject(Daniel_and_Simon)_Hotel_Application\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

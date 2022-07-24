@@ -7,6 +7,6 @@ namespace GroupProject_Daniel_and_Simon__Hotel_Application.Models
     {
         public BookingContext(DbContextOptions<BookingContext> options) : base(options) { }
 
-        public DbSet<Booking> hoteldb { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
     }
 }

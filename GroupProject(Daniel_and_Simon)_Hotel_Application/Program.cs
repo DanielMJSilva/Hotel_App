@@ -9,13 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("User"));
-builder.Services.AddDbContext<BookingContext>(opt => opt.UseInMemoryDatabase("Booking"));
+//builder.Services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("User"));
+//builder.Services.AddDbContext<BookingContext>(opt => opt.UseInMemoryDatabase("Booking"));
 
-//builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("HotelApiConnectionString_User")));
-//builder.Services.AddDbContext<BookingContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("HotelApiConnectionString_Booking")));
+builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("HotelApiConnectionString_User")));
+builder.Services.AddDbContext<BookingContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("HotelApiConnectionString_Booking")));
 
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
